@@ -1,0 +1,9 @@
+.comicstore-header {
+  background-color: $base-color;
+}
+
+@media screen and (max-width: 1024px) {
+  .comicstore-header {
+    display: flex;
+  }
+}

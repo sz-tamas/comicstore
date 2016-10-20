@@ -1,0 +1,21 @@
+@charset 'UTF-8';
+@import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700';
+
+// General
+$base-color: #D50000;
+$base-font-family: "Roboto","Helvetica","Arial",sans-serif;
+
+// Base metrics
+$base-font-size: 14px;
+$base-font-weight: 400;
+$base-line-height: 1;
+$base-spacing: 16px;
+$base-letter-spacing: 0.04em;
+$base-z-index: 1;
+
+// Imported styles
+@import
+  "includes/base",
+  "includes/header",
+  "includes/drawer"
+;

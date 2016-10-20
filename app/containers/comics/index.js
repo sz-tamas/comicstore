@@ -4,6 +4,12 @@ import { connect } from 'react-redux'
 import Page from '../Page'
 
 export class Comics extends Page {
+    constructor() {
+        super();
+
+        this.title = 'Marvel Comics';
+    }
+
     render() {
         return this.renderPage(<div>page</div>);
     }
