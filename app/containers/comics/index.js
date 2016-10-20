@@ -1,7 +1,18 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-export default class Comics extends React.Component {
+import Page from '../Page'
+
+export class Comics extends Page {
     render() {
-        return (<div></div>);
+        return this.renderPage(<div>page</div>);
     }
 }
+
+export default connect((store) => {
+    return {
+        attributionText: store.comics.attributionText,
+        data: store.comics.data,
+        loading: store.comics.fetching
+    }
+})(Comics);
