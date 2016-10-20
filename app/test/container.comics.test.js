@@ -27,4 +27,10 @@ describe('<Comics/>', function() {
 
         expect(wrapper.find('.comicstore-progress')).to.have.length(1);
     });
+
+    it('should have a grid', function() {
+        const wrapper = mount(<Comics data={{results: []}} loading={true}/>);
+
+        expect(wrapper.find('.comicstore-grid')).to.have.length(1);
+    });
 });

@@ -1,0 +1,31 @@
+.comicstore-card.mdl-card {
+  width: auto;
+  max-width: 330px;
+  margin: 0 auto;
+}
+
+.comicstore-card > .mdl-card__title {
+  color: #fff;
+  height: 354px;
+  background-color: #00acc1;
+
+
+}
+.comicstore-card > .mdl-card__menu {
+  color: #fff;
+}
+
+.mdl-card__title-cover {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 354px;
+}
+
+.mdl-card__title-text {
+  z-index: 1;
+  font-weight: 600;
+  text-shadow: 1px 1px #414141;
+}

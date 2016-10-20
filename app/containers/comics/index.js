@@ -7,6 +7,7 @@ import config from '../../../config'
 
 import Page from '../Page'
 import Request from '../../plugin/Request'
+import Card from '../../components/Card'
 
 export class Comics extends Page {
     static requestParams = {
@@ -60,6 +61,16 @@ export class Comics extends Page {
             <div className="comicstore-grid-empty"
                  hidden={this.props.loading || (!this.props.loading && this.props.data.results.length)}>
                 There are no comics here.
+            </div>
+            <div className="mdl-grid comicstore-grid">
+                {this.props.data.results.map(comic =>
+                    <div className="mdl-cell mdl-cell--4-col" key={comic.id}>
+                        <Card
+                            cover={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
+                            {...comic}
+                        />
+                    </div>
+                )}
             </div>
         </div>);
     }
