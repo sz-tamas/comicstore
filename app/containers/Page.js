@@ -7,6 +7,7 @@ import Footer from '../components/Footer'
 export default class Page extends React.Component {
     title = '';
     drawerLinks = [];
+    headerActions = [];
 
     constructor() {
         super();
@@ -19,7 +20,7 @@ export default class Page extends React.Component {
 
     renderPage(page) {
         return (<div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-            <Header title={this.title}/>
+            <Header title={this.title} actions={this.headerActions}/>
             <Drawer title={this.title} links={this.drawerLinks}/>
             <main className="mdl-layout__content comicstore-content">
                 {page}

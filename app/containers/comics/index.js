@@ -26,6 +26,10 @@ export class Comics extends Page {
         this.title = 'Marvel Comics';
         this.weekStart = moment().startOf('isoWeek').format('YYYY-MM-DD');
         this.weekEnd = moment().endOf('isoWeek').format('YYYY-MM-DD');
+
+        this.headerActions.push({
+            id: 'search', icon: 'search', placeholder: 'Search in title', onChange: this.search.bind(this)
+        });
     }
 
     componentWillMount() {
@@ -38,6 +42,10 @@ export class Comics extends Page {
         if (nextProps.attributionText) {
             this.setState({copyright: nextProps.attributionText});
         }
+    }
+
+    search(query) {
+        this.load(query ? {...Comics.requestParams, titleStartsWith: query} : Comics.requestParams);
     }
 
     load(params = Comics.requestParams) {
