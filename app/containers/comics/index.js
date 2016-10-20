@@ -8,6 +8,7 @@ import config from '../../../config'
 import Page from '../Page'
 import Request from '../../plugin/Request'
 import Card from '../../components/Card'
+import PageNav from '../../components/PageNav'
 
 export class Comics extends Page {
     static requestParams = {
@@ -54,6 +55,22 @@ export class Comics extends Page {
         );
     }
 
+    navigate(type) {
+        switch(type) {
+            case 'NEXT':
+                this.weekStart = moment(this.weekStart).subtract(1, 'weeks').format('YYYY-MM-DD');
+                this.weekEnd = moment(this.weekEnd).subtract(1, 'weeks').format('YYYY-MM-DD');
+                break;
+            case 'BACK':
+                this.weekStart = moment(this.weekStart).add(1, 'weeks').format('YYYY-MM-DD');
+                this.weekEnd = moment(this.weekEnd).add(1, 'weeks').format('YYYY-MM-DD');
+                break;
+            default: break;
+        }
+
+        this.load();
+    }
+
     render() {
         return this.renderPage(<div>
             <div className="comicstore-progress mdl-progress mdl-js-progress mdl-progress__indeterminate"
@@ -72,6 +89,13 @@ export class Comics extends Page {
                     </div>
                 )}
             </div>
+            <PageNav
+                hidden={this.props.loading || this.props.data.results.length == 0}
+                nextLabel="Older"
+                backLabel="Newer"
+                hideBack={() => moment().startOf('isoWeek') <= moment(this.weekStart)}
+                navigate={this.navigate.bind(this)}
+            />
         </div>);
     }
 }

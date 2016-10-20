@@ -1,0 +1,34 @@
+.comicstore-nav {
+  margin: 12px 15px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: white;
+  font-weight: 500;
+
+  .comicstore-nav__button {
+    cursor: pointer;
+
+    .mdl-button {
+      background: $base-color;
+      color: #fff;
+    }
+
+    .comicstore-nav__label {
+      margin: 0 8px;
+    }
+  }
+
+  .comicstore-nav__button:last-child {
+    margin-right: 16px;
+  }
+}
